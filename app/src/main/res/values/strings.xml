@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">GeekAppWeather</string>
+    <string name="minsk">Минск</string>
+    <string name="EditText_city">Введите город</string>
+    <string name="temp">+3</string>
+    <string name="Status">Снег</string>
+    <string name="image_description">Image</string>
 </resources>
