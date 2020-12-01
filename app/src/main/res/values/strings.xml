@@ -5,4 +5,19 @@
     <string name="temp">+3</string>
     <string name="Status">Снег</string>
     <string name="image_description">Image</string>
+    <string name="menu_setting">НАСТРОЙКИ</string>
+    <string name="temp_setting">Температура</string>
+    <string name="time_format_setting">Формат времени</string>
+    <string name="speed_setting">Скорость ветра</string>
+    <string name="block_lsd_setting">Экран блокировки</string>
+    <string name="push_setting">Уведомление</string>
+    <string name="status_bar_setting">Панель состояния</string>
+    <string name="Start_button_setting">OK</string>
+    <string name="f_c">F/C</string>
+    <string name="_12_24">12/24</string>
+    <string name="ok_search">Готово</string>
+    <string name="search_city_button">Найти город</string>
+    <string name="setting_main">Настройки</string>
+    <string name="switch_search">Автоматическое обнаружение</string>
+    <string name="city_text">Введите город</string>
 </resources>
