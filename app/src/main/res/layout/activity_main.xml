@@ -36,6 +36,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="20dp"
         android:text="@string/setting_main"
+        android:onClick="click"
         app:layout_constraintBottom_toTopOf="@+id/search_city_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
