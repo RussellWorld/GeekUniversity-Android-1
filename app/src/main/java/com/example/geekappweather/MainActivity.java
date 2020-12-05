@@ -14,11 +14,18 @@ public class MainActivity extends AppCompatActivity {
       setContentView(R.layout.activity_main);
 //        setContentView(R.layout.setting);
 //        setContentView(R.layout.city_search);
-
-        Toast.makeText(getApplicationContext(), "First: onCreate()", Toast.LENGTH_SHORT).show();
-        Log.i(TAG, "First: onCreate()");
+        String instState;
+        if(savedInstanceState == null) instState = "First: onCreate";
+        instState = "Second: onCreate";
+        Toast.makeText(getApplicationContext(), instState, Toast.LENGTH_SHORT).show();
+        Log.i(TAG, "onCreate()");
     }
-
+    @Override
+    protected void onRestoreInstanceState(Bundle saveInstanceState){
+        super.onRestoreInstanceState(saveInstanceState);
+        Toast.makeText(getApplicationContext(),"onRestoreInstanceState()",Toast.LENGTH_LONG).show();
+        Log.i(TAG, "onRestoreInstanceState()");
+    }
     @Override
     protected void onStart() {
         super.onStart();
