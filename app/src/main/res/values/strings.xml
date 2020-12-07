@@ -20,4 +20,5 @@
     <string name="setting_main">Настройки</string>
     <string name="switch_search">Автоматическое обнаружение</string>
     <string name="city_text">Введите город</string>
+    <string name="browser">Посмотреть в браузере</string>
 </resources>
