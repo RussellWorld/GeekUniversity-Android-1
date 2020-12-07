@@ -1,77 +1,44 @@
 package com.example.geekappweather;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
-    private final String TAG = "Lifecycle";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      setContentView(R.layout.activity_main);
-//        setContentView(R.layout.setting);
-//        setContentView(R.layout.city_search);
-        String instState;
-        if(savedInstanceState == null) instState = "First: onCreate";
-        instState = "Second: onCreate";
-        Toast.makeText(getApplicationContext(), instState, Toast.LENGTH_SHORT).show();
-        Log.i(TAG, "onCreate()");
+        setContentView(R.layout.activity_main);
+
+        Button bSearchCity = findViewById(R.id.search_city_button);
+        bSearchCity.setOnClickListener(view -> {
+            Intent intentSearchCityActivity = new Intent(MainActivity.this, SearchCityActivity.class);
+            startActivity(intentSearchCityActivity);
+        });
+
+        Button bSetting = findViewById(R.id.setting_main_button);
+        bSetting.setOnClickListener(view -> {
+            Intent intentSettingActivity = new Intent(MainActivity.this, SettingActivity.class);
+            startActivity(intentSettingActivity);
+        });
+
+        TextView textCity = findViewById(R.id.text_city);
+        Intent intentStartedThisActivity = getIntent();
+        if (intentStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
+            String textEntered = intentStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
+            textCity.setText(textEntered);
+        }
+        Button bBrowser = findViewById(R.id.browser_main_button);
+        bBrowser.setOnClickListener(view -> {
+            Uri site = Uri.parse("https://yandex.ru/pogoda");
+            Intent intentSite = new Intent(Intent.ACTION_VIEW, site);
+            startActivity(intentSite);
+        });
     }
-    @Override
-    protected void onRestoreInstanceState(Bundle saveInstanceState){
-        super.onRestoreInstanceState(saveInstanceState);
-        Toast.makeText(getApplicationContext(),"onRestoreInstanceState()",Toast.LENGTH_LONG).show();
-        Log.i(TAG, "onRestoreInstanceState()");
-    }
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        Toast.makeText(getApplicationContext(), "First: onStart()", Toast.LENGTH_SHORT).show();
-        Log.i(TAG, "First: onStart()");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        Toast.makeText(getApplicationContext(), "First: onResume()", Toast.LENGTH_SHORT).show();
-        Log.i(TAG, "First: onResume()");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        Toast.makeText(getApplicationContext(), "First: onPause()", Toast.LENGTH_SHORT).show();
-        Log.i(TAG, "First: onPause()");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-        Toast.makeText(getApplicationContext(), "First: onStop()", Toast.LENGTH_SHORT).show();
-        Log.i(TAG, "First: onStop()");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-
-        Toast.makeText(getApplicationContext(), "First: onRestart()", Toast.LENGTH_SHORT).show();
-        Log.i(TAG, "First: onRestart()");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        Toast.makeText(getApplicationContext(), "First: onDestroy()", Toast.LENGTH_SHORT).show();
-        Log.i(TAG, "First: onDestroy()");
-    }
-
 }
